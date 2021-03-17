@@ -1,0 +1,28 @@
+@extends('adminlte::page')
+
+@section('title', 'CableUnet')
+
+@section('content_header')
+    <h1>Editar Servicio</h1>
+@stop
+
+@section('content')
+    <div class="card">
+
+   <div class="card-body">
+            {!! Form::model($servicio,['route'=>['admin.servicios.update', $servicio], 'method'=>'put']) !!}
+                <div class="form-group">
+                    {!! Form::label('nombre', 'nombre') !!}
+                    {!! Form::text('nombre', null, ['class'=>'form-control','placeholder'=>'ingrese el nombre del servicio']) !!}
+                    
+                    @error('nombre')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
+                    
+                </div>
+                {!! Form::submit('Actualizar Servicio', ['class'=>'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        </div>
+    </div>
+@stop
+
